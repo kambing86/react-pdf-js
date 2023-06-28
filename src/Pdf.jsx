@@ -1,4 +1,5 @@
 import React from 'react';
+import { flushSync } from 'react-dom';
 import PropTypes from 'prop-types';
 
 require('pdfjs-dist/build/pdf.combined');
@@ -198,7 +199,9 @@ class Pdf extends React.Component {
   }
 
   onPageComplete = (page) => {
-    this.setState({ page });
+    flushSync(() => {
+      this.setState({ page });
+    });
     this.renderPdf();
     const { onPageComplete } = this.props;
     if (typeof onPageComplete === 'function') {
