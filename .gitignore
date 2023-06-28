@@ -1,9 +1,9 @@
 .idea
 node_modules
 dist
-lib
 npm-debug.log
 .DS_Store
 /.idea/
 /react-pdf-js.iml
 yarn.lock
+.yarn
